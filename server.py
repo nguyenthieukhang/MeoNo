@@ -6,8 +6,8 @@ import game
 import network
 
 HOST = '127.0.0.1'
-PORT = 5575
-MAX_NUMBER_PLAYER = 1
+PORT = 5590
+MAX_NUMBER_PLAYER = 2
 
 SERVER = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 SERVER.bind((HOST, PORT))
@@ -30,3 +30,4 @@ waiting_for_connection()
 game_manager = game.Game(clients)
 print('Game started')
 game_manager.start()
+SERVER.close()
