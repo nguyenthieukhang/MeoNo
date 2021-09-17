@@ -3,6 +3,7 @@ import constants
 import deck
 import socket
 import struct
+import time
 
 class Game:
     class PlayerClient:
@@ -41,9 +42,12 @@ class Game:
         for i in range(len(self.players) - 1):
             self.deck.insert(1, constants.CARD_BOMB)
 
+        print('Dealing cards...')
+        time.sleep(10)
+
     def start(self):
         self.deal_cards()
-        print('Sart game')
+        print('Start game')
         while len(self.players) > 1:
 
             curr_player = self.players[self.turn_counter]

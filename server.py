@@ -6,7 +6,7 @@ import game
 import network
 
 HOST = '127.0.0.1'
-PORT = 5573
+PORT = 5575
 MAX_NUMBER_PLAYER = 1
 
 SERVER = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

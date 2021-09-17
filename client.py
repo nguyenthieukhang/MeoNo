@@ -4,7 +4,7 @@ import constants
 import network
 
 HOST = '127.0.0.1'
-PORT = 5573
+PORT = 5575
 SERVER = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 try:
     SERVER.connect((HOST, PORT))
