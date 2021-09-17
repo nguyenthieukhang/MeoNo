@@ -4,10 +4,8 @@ import constants
 
 
 class Deck:
-    def __init__(self, max_card):
-        self.cards = []
-        for i in range(max_card):
-            self.cards.append(0)
+    def __init__(self):
+        self.cards = self.basic_deck()
 
     def shuffle(self):
         random.shuffle(self.cards)
@@ -44,5 +42,5 @@ class Deck:
         except Exception as e:
             print(str(e))
 
-    def basic_deck_five_player(self)-> list:
-        return [constants.CARD_BOMB]*4 + [constants.CARD_DEFUSE]*6 + [constants.CARD_SKIP]*4 + [constants.CARD_ATTACK]*4 + [constants.CARD_SEE_THE_FUTURE]*5 + [constants.CARD_NOPE]*5 + [constants.CARD_SHUFFLE]*4 + [constants.CARD_USELESS_CAT_1]*4 + [constants.CARD_USELESS_CAT_2]*4 + [constants.CARD_USELESS_CAT_3]*4 + [constants.CARD_USELESS_CAT_4]*4 + [constants.CARD_USELESS_CAT_5]*4 + [constants.CARD_FAVOR]*4
+    def basic_deck(self)-> list:
+        return [constants.CARD_DEFUSE]*2 + [constants.CARD_SKIP]*4 + [constants.CARD_ATTACK]*4 + [constants.CARD_SEE_THE_FUTURE]*5 + [constants.CARD_NOPE]*5 + [constants.CARD_SHUFFLE]*4 + [constants.CARD_USELESS_CAT_1]*4 + [constants.CARD_USELESS_CAT_2]*4 + [constants.CARD_USELESS_CAT_3]*4 + [constants.CARD_USELESS_CAT_4]*4 + [constants.CARD_USELESS_CAT_5]*4 + [constants.CARD_FAVOR]*4

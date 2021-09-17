@@ -11,6 +11,7 @@ class Network:
             packet = struct.pack('i', number)
             self.server.send(packet)
         except Exception as e:
+            print('line 14')
             print(str(e))
 
     def receive(self) -> int :
@@ -19,4 +20,5 @@ class Network:
             ret = struct.unpack('i', signal)[0]
             return ret
         except Exception as e:
+            print('line 23')
             print(str(e))

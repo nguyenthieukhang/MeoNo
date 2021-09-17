@@ -1,7 +1,7 @@
 import constants
 import network
 
-class Player:
+class PlayerInterface:
     def __init__(self, network: network.Network):
         self.hand = []
         self.network = network
@@ -15,7 +15,7 @@ class Player:
     def choose_card(self) -> int:
         ind = int(input('Choose the card number or enter -1 to end the playing phase'))
         if ind == -1:
-            return constants.END_OF_PLAYING
+            return constants.END_OF_TURN
         while ind >= len(self.hand) or ind < 0:
             ind = int(input('You enter the wrong index. Please try again!'))
         card_played = self.hand.pop(ind)
@@ -23,9 +23,7 @@ class Player:
         return card_played
 
     def draw(self):
-        self.network.send(constants.DRAW_A_CARD)
         drawn_card = self.network.receive()
-
         self.hand.append(drawn_card)
 
     def play(self):
