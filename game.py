@@ -24,6 +24,7 @@ class Game:
 
     def deal_cards(self):
         self.broadcast(constants.DEAL_CARDS)
+        self.deck.shuffle()
 
         # START BY GIVING THE PLAYERS THE DEFUSES
         for player in self.players:
@@ -41,6 +42,7 @@ class Game:
         for i in range(len(self.players) - 1):
             self.deck.insert(1, constants.CARD_BOMB)
 
+        self.deck.shuffle()
         print('Dealing cards...')
         time.sleep(5)
 
