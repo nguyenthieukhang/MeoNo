@@ -8,17 +8,18 @@ class Network:
 
     def send(self, number: int):
         try:
-            packet = struct.pack('i', number)
+            #print('Seding netwrok.py line 11', number, type(number))
+            packet = struct.pack('!i', int(number))
             self.server.send(packet)
         except Exception as e:
-            print('line 14')
-            print(str(e))
+            print('line 15 network.py', str(e))
 
     def receive(self) -> int :
         try:
-            signal = self.server.recv(4)
-            ret = struct.unpack('i', signal)[0]
+            buf = b''
+            while len(buf) < 4:
+                buf += self.server.recv(8)
+            ret = struct.unpack('!i', buf[:4])[0]
             return ret
         except Exception as e:
-            print('line 23')
-            print(str(e))
+            print('line 23 network.py', str(e))

@@ -4,7 +4,7 @@ import constants
 import network
 
 HOST = '127.0.0.1'
-PORT = 5568
+PORT = 5573
 SERVER = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 try:
     SERVER.connect((HOST, PORT))
@@ -28,6 +28,7 @@ def main():
         if signal == constants.DEAL_CARDS:
             for i in range(constants.START_HAND):
                 hand.append(network.receive())
+                print('Take the card', hand[-1])
             show_cards()
 
         elif signal == constants.ASK_RESPONSE:

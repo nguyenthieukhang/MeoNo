@@ -33,7 +33,7 @@ class Game:
         # GIVE THEM THE REMAINING CARDS
         for i in range(constants.START_HAND - 1):
             for player in self.players:
-                card = self.deck.take_top()
+                card = self.deck.take_top()[0]
                 player.connection.send(card)
                 player.hand.append(card)
 
@@ -43,7 +43,7 @@ class Game:
 
     def start(self):
         self.deal_cards()
-
+        print('Sart game')
         while len(self.players) > 1:
 
             curr_player = self.players[self.turn_counter]
@@ -95,6 +95,9 @@ class Game:
                 self.attacked_turn = 1
             else:
                 self.turn_counter = (self.turn_counter + 1) % self.count_player
+
+
+        print('Game over!')
 
     def see_the_future(self, curr_player):
         pass
